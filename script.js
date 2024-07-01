@@ -13,6 +13,11 @@ window.speechSynthesis.onvoiceschanged = () => {
     voices.forEach((voice, i)=>(voiceSelect.options[i] = new Option(voice.name, i)));
 }
 
+// change event on the dropdown
+voiceSelect.addEventListener("change", ()=>{
+    speech.voice = voices[voiceSelect.value];
+});
+
 // speaking functionality triggered by the button
 document.querySelector("button").addEventListener("click", ()=>{
     speech.text = document.querySelector("textarea").value;
